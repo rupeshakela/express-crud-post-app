@@ -60,6 +60,9 @@ app.delete("/posts/:id",(req,res)=>{
     posts=posts.filter((p)=>id!==p.id);
     res.redirect("/posts");
 });
+app.get("/",(req,res)=>{
+   res.redirect("/posts");
+});
 let port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`server is running at ${port}`);
