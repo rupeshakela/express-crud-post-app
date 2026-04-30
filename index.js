@@ -1,6 +1,5 @@
 const express=require("express");
 const app=express();
-let port=5000;
 const path=require("path");
 const { v4: uuidv4 } = require('uuid');
 const methodOverride=require('method-override');
@@ -61,7 +60,7 @@ app.delete("/posts/:id",(req,res)=>{
     posts=posts.filter((p)=>id!==p.id);
     res.redirect("/posts");
 });
-
+let port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`server is running at ${port}`);
 });
